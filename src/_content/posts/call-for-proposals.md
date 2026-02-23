@@ -15,7 +15,7 @@ We are excited that DjangoCon US 2026 is now open for talk submissions: [call fo
 
 We invite you to submit your proposal no matter your background or experience level with Django. Proposals can be from a wide range of topics; non-Django and community topics are welcome. You can look at our [talk lineup](https://2025.djangocon.us/news/announcing-lineup/) from last year for reference.
 
-We fancy first-timers! If you haven't spoken at a conference or given a tutorial before, this is your invitation to do so. Don't let the idea that you're not famous or an expert stop you from submitting. It certainly won't stop us from selecting your talk or tutorial and it won't stop the audience from enjoying it! If you still need help decding on a topic take a look at our own Drew Winstel's [blog post](https://winstel.dev/2026/01/05/talk-ideas-for-dcus-26/) for some ideas.
+We fancy first-timers! If you haven't spoken at a conference or given a tutorial before, this is your invitation to do so. Don't let the idea that you're not famous or an expert stop you from submitting. It certainly won't stop us from selecting your talk or tutorial and it won't stop the audience from enjoying it! If you still need help deciding on a topic take a look at our own Drew Winstel's [blog post](https://winstel.dev/2026/01/05/talk-ideas-for-dcus-26/) for some ideas.
 
 Plus there are perks! Presenters get free admission to DjangoCon US! [Grants](https://2026.djangocon.us/opportunity-grants/) to assist with your travel and lodging expenses are available as well. The form for [Opportunity Grants](https://forms.gle/xYSsdAGR5RbvtH9q7) is now live, and **the application deadline is also March 16th, 2026**.
 
