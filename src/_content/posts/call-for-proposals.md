@@ -1,5 +1,6 @@
 ---
 author: Communications Team
+featured: true
 category: General
 published_datetime: 2026-02-20 12:00:00
 layout: post
