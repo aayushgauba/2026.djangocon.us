@@ -1,5 +1,6 @@
 ---
 author: DEFNA Board
+featured: true
 hidden: false
 category: Announcements
 published_datetime: 2026-02-12T18:00:00Z
