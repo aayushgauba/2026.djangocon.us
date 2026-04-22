@@ -5,70 +5,56 @@ templateClass: homepage
 {% layout "_layouts/default.html" %}
 
 {% block header %}
-<div class="home-hero">
+<div class="index-hero">
   {% include "header.html" %}
 
-  <div id="SiteHero" class="flex justify-center lg:justify-start flex:block wrapper">
-    <section class="mx-auto home-hero-content lg:w-1/2">
-      <h2 class="pt-8">
-        Join us for five days of inspiration, education, and networking
-      </h2>
+  <div id="SiteHero" class="index-wrapper">
+    <section class="flex flex-col items-center gap-8 mx-auto lg:w-1/2 lg:py-16 xl:w-[660px]">
+      <span class="bubble">{{ site.conference_dates }}</span>
 
-      <p class="py-3 mb-4 text-2xl lg:text-3xl">
-        August 24-28, 2026
+      <img src="/assets/img/2026/logo-styled.svg" class="w-full" alt="DjangoCon US" />
+
+      <p class="text-xl text-center w-3/4">Join us for five days of inspiration, education, and networking at the <a href="https://www.ihg.com/voco/hotels/us/en/chicago/chiwp/hoteldetail" target="_blank" rel="noopener noreferrer" class="underline-offset-4 decoration-[2px]">Voco Chicago Downtown</a>
       </p>
 
-      <a
-        href="https://www.ihg.com/voco/hotels/us/en/chicago/chiwp/hoteldetail"
-        target="_blank"
-        class="mb-6 text-2xl underline-offset-4 decoration-[2px] lg:text-3xl">voco Chicago Downtown</a>
-
-      <p class="mb-8 text-2xl">
-          Chicago, Illinois
-      </p>
-
-      <div class="justify-center button-group">
-        {% comment %}
-          <a class="w-full text-xl button sm:w-auto" href="{{ site.ticket_link }}">Buy Tickets</a>
-          <a class="w-full text-xl button sm:w-auto" target="_blank" href="{{ site.hotel_reservation_link }}">Book a Hotel Room</a>
-          <a class="button" href="/schedule/">Conference Schedule</a>
-        {% endcomment %}
+      <div class="p-5">
+        <div class="justify-center p-2 button-group">
+          <a class="button button-lg bg-white" href="{{ site.mailing_list }}">Join Mailing List</a>
+          <a class="button button-lg bg-white" href="{{ site.hotel_reservation_link }}">Book a Hotel Room</a>
+        </div>
+        <div class="justify-center p-2 button-group">
+          <a class="button button-lg bg-primary" href="{{ site.ticket_link }}">Buy Tickets</a>
+        </div>
       </div>
-      <div class="justify-center p-5 button-group">
-        {% comment %}<a class="text-lg font-bold button" href="{{ site.opportunity_grant_application }}">Apply for a Grant</a>{% endcomment %}
-        <a class="text-lg font-bold button" href="{{ site.mailing_list }}">Join Mailing List</a>
-        <a class="text-lg font-bold button" href="{{ site.hotel_reservation_link }}">Book a Hotel Room</a>
-        <a class="text-lg font-bold button" href="https://ti.to/defna/djangocon-us-2026">Buy Tickets</a>
-      </div>
-      <p class="text-lg text-center">
-        Opportunity Grant deadline: <strong>March 16, 2026</strong><br>
-        Talk Proposal deadline: <strong>March 23, 2026</strong> (closed)
-      </p>
     </section>
   </div>
 
-  <!-- <div class="home-gameboard">
-    <img src="/assets/img/theme/dj-gameboard-25.svg" class="" role="presentation" />
-  </div> -->
-
-  <img src="/assets/img/theme/hero-wave-invert.svg" class="object-cover object-center w-full h-20 pointer-events-none 2xl:h-auto" role="presentation" />
+  <div class="index-hero-stats grid grid-cols-3">
+    <p><span>400+</span> Attendees</p>
+    <p><span>25+</span> Talks</p>
+    <p><span>5</span> Days</p>
+  </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="pt-0 lg:pt-8 block-container ">
-  <div class="wrapper">
-    <div class="grid-cols-2 gap-8 text-center lg:grid lg:text-left align-center">
-      <section class="my-6 ">
-        <h2 class="mb-4 text-3xl font-bold text-center lg:text-left lg:leading-relaxed font-heading lg:text-4xl">For Djangonauts of all levels</h2>
-        <p class="mb-6 text-xl lg:text-2xl">
-          DjangoCon US has something for everyone, from the person who develops Django applications for a living to the person who just tinkers in their spare time.
-        </p>
-        <a class="w-full text-xl button sm:w-auto" href="/about">About DjangoCon US</a>
-      </section>
+  <section class="p-4">
+    <img src="/assets/img/2026/54779239938_98a40e9cda_k.jpg" class="my-8 min-h-[400px] w-full object-cover rounded-xl" alt="Group photo of attendees at DjangoCon US 2025" />
+  </section>
+
+  <div class="pt-0 lg:pt-8 block-container">
+    <div class="wrapper">
+      <div class="grid-cols-2 gap-16 text-center lg:grid lg:text-left align-center">
+        <section class="my-6">
+          <h2 class="site-h3 mb-4">For Djangonauts of all levels</h2>
+          <p class="mb-6">
+            DjangoCon US has something for everyone, from the person who develops Django applications for a living to the person who just tinkers in their spare time.
+          </p>
+          <a class="button button-lg" href="/about">About DjangoCon US</a>
+        </section>
 
         <ul class="items-center self-end gap-6 py-4 text-left lg:gap-0 md:flex lg:flex-col lg:items-start">
-          <li>
+        <li>
             {%
               include 'date-card.html',
               month:"Aug",
@@ -85,66 +71,66 @@ templateClass: homepage
             %}
           </li>
         </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="bg-white block-container wrapper">
-  <div class="space-y-8">
-    <h3 class="mb-4 text-xl font-bold tracking-wide text-center uppercase md:text-2xl font-heading">Learn more about Our Values</h3>
-
-    <div class="grid gap-8 lg:grid-cols-2">
-      {%
-        include 'value-card.html',
-        bg:"/assets/img/2025/54088239977_6e8fb060a5_c.jpg",
-        heading:"Code of Conduct"
-        paragraph:"Participants are expected to be respectful to each other. For details on our expectations, and who to contact if you need assistance, see our <a href='/conduct/'>Code of Conduct</a>."
-      %}
-      {%
-        include 'value-card.html',
-        heading:"Accessibility"
-        bg:"/assets/img/2025/53300199096_3d72d83ebd_c.jpg",
-        paragraph:"We offer a range of accommodations, including live captioning, thoughtful lunch options, and a dedicated accessibility team to ensure everyone can fully participate."
-      %}
-    </div>
-  </div>
-  </div>
   <div class="block-container">
     <div class="wrapper">
-      <section class="items-center justify-between grid-cols-4 gap-8 py-4 sm:grid">
-        <img src="/assets/img/theme/blog.svg" alt="An official document with words written on it." class="hidden w-full sm:block"/>
+      <h2 class="site-h2 mb-8 text-center lg:mb-12">Latest News</h2>
 
-        <div class="col-span-3">
-          <h2 class="mb-4 text-3xl font-bold text-center md:text-left font-heading lg:text-4xl">Featured News</h2>
-
-          <ol class="flex flex-col items-center col-span-2 md:items-start" reversed>
-            {%- for post in collections.posts reversed -%}
-              {% if post.data.featured %}
-                <li>
-                  <article class="gap-8 py-4">
-                    <time class="mb-2 tracking-wide text-gray-600 uppercase" datetime="{{ post.date }}">
-                      {{ post.data.published_datetime | formatDateTime: "MMMM d, yyyy" }}
-                    </time>
-                    <h3 class="text-xl font-semibold font-heading">
-                      <a href="{{ post.url }}" class="">{{ post.data.title | escape }}</a>
-                    </h3>
-                  </article>
-                </li>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {% assign featured_count = 0 %}
+        {% for post in collections.posts reversed %}
+          {% if post.data.featured and featured_count < 3 %}
+            {% assign featured_count = featured_count | plus: 1 %}
+            <article class="featured-news-card">
+              <time
+                class="text-sm tracking-wide text-black-400 uppercase"
+                datetime="{{ post.date }}">{{ post.data.published_datetime | formatDateTime: "MMMM d, yyyy" }}</time>
+              <h3 class="font-heading text-xl text-dark-blue mt-2 lg:text-2xl">
+                <a href="{{ post.url }}" class="reverse-link">{{ post.data.title | escape }}</a>
+              </h3>
+              {%- if post.data.page.excerpt -%}
+                <div class="mt-3 text-sm text-black-500 line-clamp-3">
+                  {{ post.data.page.excerpt | markdown }}
+                </div>
               {%- endif -%}
-            {%- endfor -%}
-          </ol>
-        </div>
-      </section>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="mt-8 text-center lg:mt-12">
+        <a href="/news" class="button">All News</a>
+      </div>
     </div>
   </div>
 
   <div class="block-container">
     <div class="text-center wrapper">
-      <h2 class="mb-10 text-3xl font-bold font-heading lg:text-4xl">Our Sponsors</h2>
+      <h2 class="site-h2 mb-8 lg:mb-16">Our Sponsors</h2>
 
-      {% include "sponsor-listing.html" %}
+      <ul class="site-sponsors">
+        {% assign sponsor_order = "Platinum,Gold,Silver,Community,Opportunity Grants" | split: "," %}
+        {% for level in sponsor_order %}
+          {% for sponsor in collections.sponsors %}
+            {% if sponsor.data.level == level %}
+            <li class="site-sponsor">
+              <a href="{{ sponsor.data.url.target }}" target="_blank" rel="noopener noreferrer sponsored">
+                <img
+                  src="/sponsors/{{ sponsor.data.logo.filename }}"
+                  alt="{{ sponsor.data.name }} logo"
+                  class="my-2 h-16 max-w-40 object-contain w-auto">
+                <span class="px-3 py-1 bg-white rounded-xl text-xs font-semibold">{{ sponsor.data.level }}</span>
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
 
-      <a href="#" class="mt-20 text-xl button">Become a Sponsor</a>
+      <a href="/sponsors" class="my-12 lg:mt-20 inline-block text-xl button">Become a Sponsor</a>
     </div>
   </div>
 {% endblock %}

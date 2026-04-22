@@ -7,7 +7,8 @@ const setupSessions = require('./lib/sessions');
 const setupFeed = require('./lib/feed');
 const markdown = require('./lib/markdown');
 
-const { formatInTimeZone } = require('date-fns-tz');
+const { format } = require('date-fns');
+const { TZDate } = require('@date-fns/tz');
 
 // Read timezone from site.json
 const siteConfig = require('./src/_data/site.json');
@@ -26,10 +27,12 @@ module.exports = (config) => {
   config.addPassthroughCopy("src/assets/js/");
   config.addPassthroughCopy("src/assets/gpx/*");
   config.addPassthroughCopy("src/assets/favicons/");
+  config.addPassthroughCopy("src/assets/fonts/");
   config.addPassthroughCopy({
     "src/_content/sponsors/*.{png,jpg,jpeg,webp,svg}": "sponsors/",
     "src/_content/places/*.{png,jpg,jpeg,webp,svg}": "venue/",
   });
+  config.addPassthroughCopy("src/manifest.webmanifest");
   config.addPassthroughCopy("CNAME");
   config.addPassthroughCopy("ROBOTS.txt");
   config.addPassthroughCopy(".nojekyll");
@@ -87,8 +90,8 @@ module.exports = (config) => {
     return markdown.render(content);
   });
 
-  config.addFilter("formatDateTime", function(date, format) {
-    return formatInTimeZone(date, timezone, format);
+  config.addFilter("formatDateTime", function(date, formatStr) {
+    return format(new TZDate(date, timezone), formatStr);
   });
 
   config.addFilter("find", function find(collection = [], slug = "") {

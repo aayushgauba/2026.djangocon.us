@@ -29,56 +29,40 @@
   <meta property="fb:app_id" content="280981518972848" />
   <meta name="google-site-verification" content="fkIplA0HzMWPz64TqaW1xp4RH5JfDyRekV3QO_MqJ8Q" />
 
-  <link href="/assets/favicons/favicon.ico" rel=icon type="image/x-icon">
-  <link href="/assets/favicons/favicon.png" rel=icon type="image/png">
-  <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
+  <link rel="icon" href="/assets/favicons/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/favicons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
 
   <title>{% if title %}{{ title }} | {% endif %}DjangoCon US 2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body id="SiteBody" {% if templateClass %} class="{{ templateClass }}"{% endif %}>
+  <a href="#SiteMain" class="sr-only focus:bg-ocean-blue focus:z-[2000] focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:text-dark-blue focus:rounded focus:shadow">Skip to main content</a>
+
   {% block header %}
     {% include "header.html" %}
   {% endblock %}
 
-  <main id="SiteMain" class="flex-1 {% if site.banner %}pt-[120px]{% else %}pt-[96px]{% endif %} lg:pt-0 lg:block">
+  <main id="SiteMain" class="flex-1 {% if site.banner %}pt-[120px]{% else %}pt-[90px]{% endif %} lg:pt-0 lg:block">
     {%- block content -%}
       {{- content -}}
     {%- endblock -%}
   </main>
 
-  <footer id="SiteFooter" class="py-20">
-    <div class="container mx-auto">
-      <div class="grid gap-8 px-4 place-items-center">
-        {% include "conf-social-share.html" %}
-
-        <p class="text-center lg:text-xl">
-          <strong>
-            Got questions? We can help:
-            <a
-              href="mailto:{{site.contact_us_email}}" class="link">{{site.contact_us_email}}</a>
-          </strong>
-        </p>
-        <small class="text-sm text-center">
-          &copy; {{ site.conf_year }} DjangoCon US
-          {%- comment -%}· Design by <a href="https://yupgup.com/" class="link" target="_blank">YupGup</a>{%- endcomment -%}
-          · Presented by <a href="https://www.defna.org/" class="link" target="_blank">DEFNA</a>
-          · <a href="/styleguide/">Styleguide</a>
-          {%- comment -%}· <a href="/colophon/" class="link">Colophon</a>{%- endcomment -%}
-        </small>
-      </div>
-    </div>
-  </footer>
+  {% include "footer.html" %}
 
   {%- comment -%}
     Social icons added as sprite
   {%- endcomment -%}
+  {%- include 'svg-site-icons.html' -%}
   {%- include 'svg-social-icons.html' -%}
 
   <script src="/assets/js/main.js"></script>
